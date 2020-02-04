@@ -10,4 +10,4 @@ jobs:
       - name: Install and run script
         run: |
           pip3 install selenium
-          python test_selenium.py
+          python3 test_selenium.py
