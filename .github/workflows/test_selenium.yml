@@ -1,0 +1,12 @@
+name: Chrome
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Setup Chrome
+    runs-on: macos-latest
+    steps:
+      - name: Install and run script
+        run: |
+          pip3 install selenium
+          python test_selenium.py
