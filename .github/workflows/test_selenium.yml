@@ -10,11 +10,13 @@ jobs:
         os: [macos-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
+      - name: Install selenium
+        run: |
+          python --version 
+          pip3 install selenium
       - name: Install and run script chrome
         run: |
-          pip3 install selenium
           python3 test_selenium_chrome.py
       - name: Install and run script firefox
         run: |
-          pip3 install selenium
           python3 test_selenium_firefox.py
