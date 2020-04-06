@@ -28,7 +28,10 @@ class WebDriverPythonTests(unittest.TestCase):
 
     def test_time(self):
         self.driver.execute_script("console.log(Intl.DateTimeFormat().resolvedOptions());")
-
+        lang = self.driver.execute_script("return Intl.DateTimeFormat().resolvedOptions()")
+        print("lang is "+lang)
+        language = self.driver.execute_script("return window.navigator.userLanguage || window.navigator.language")
+        print("language is "+language)
         # print messages
         for entry in driver.get_log('browser'):
             print(entry)
