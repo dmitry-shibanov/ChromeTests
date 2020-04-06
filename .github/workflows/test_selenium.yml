@@ -4,10 +4,14 @@ on: [push, pull_request]
 jobs:
   build:
     name: Setup Chrome
-    runs-on: macos-latest
+    runs-on: [macos-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
-      - name: Install and run script
+      - name: Install and run script chrome
         run: |
           pip3 install selenium
-          python3 test_selenium.py
+          python3 test_selenium_chrome.py
+      - name: Install and run script firefox
+        run: |
+          pip3 install selenium
+          python3 test_selenium_firefox.py

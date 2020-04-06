@@ -22,3 +22,6 @@ class WebDriverPythonTests(unittest.TestCase):
         driver.get("http://www.python.org")
         print("Title of http://www.python.org page: " + driver.title)
         assert "Python" in driver.title
+
+    def test_time(self):
+        self.driver.execute_script("console.log(Intl.DateTimeFormat().resolvedOptions());")
