@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 class WebDriverPythonTests(unittest.TestCase):
     def setUp(self):
@@ -13,7 +14,9 @@ class WebDriverPythonTests(unittest.TestCase):
         self.chrome_options.add_argument('--no-sandbox')
         self.chrome_options.add_argument('--headless')
         self.chrome_options.add_argument('--disable-dev-shm-usage')
-        self.driver = webdriver.Chrome(chrome_options = self.chrome_options)
+        d = DesiredCapabilities.CHROME
+        d['loggingPrefs'] = { 'browser':'ALL' }
+        self.driver = webdriver.Chrome(chrome_options = self.chrome_options, desired_capabilities=d)
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
@@ -25,3 +28,7 @@ class WebDriverPythonTests(unittest.TestCase):
 
     def test_time(self):
         self.driver.execute_script("console.log(Intl.DateTimeFormat().resolvedOptions());")
+
+        # print messages
+        for entry in driver.get_log('browser'):
+            print(entry)
