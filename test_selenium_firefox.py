@@ -23,3 +23,11 @@ class WebDriverPythonTests(unittest.TestCase):
         print("lang is "+lang)
         language = self.driver.execute_script("return window.navigator.userLanguage || window.navigator.language")
         print("language is "+language)
+
+    def tearDown(self):
+        print("Closing FireFox browser")
+        self.driver.close()
+
+
+if __name__ == "__main__":
+    unittest.main()

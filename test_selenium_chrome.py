@@ -35,3 +35,11 @@ class WebDriverPythonTests(unittest.TestCase):
         # print messages
         for entry in driver.get_log('browser'):
             print(entry)
+
+    def tearDown(self):
+        print("Closing Chrome browser")
+        self.driver.close()
+
+
+if __name__ == "__main__":
+    unittest.main()
