@@ -18,9 +18,4 @@ jobs:
   - script: |
           python --version 
           pip3 install selenium
-  - displayName: Install selenium
-  - script: |
-       python3 test_selenium_chrome.py
-  - displayName: Install and run script chrome
-  - script: python3 test_selenium_firefox.py
-  - displayName: Run tests
+  - script: python3 test_selenium_chrome.py
