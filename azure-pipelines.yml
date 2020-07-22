@@ -19,4 +19,5 @@ jobs:
           python --version 
           pip install pipenv
           pipenv install
+          pipenv shell
   - script: pipenv run test_selenium_chrome.py
