@@ -17,5 +17,5 @@ jobs:
       versionSpec: '$(python.version)'
   - script: |
           python --version 
-          pip3 install selenium
-  - script: python3 test_selenium_chrome.py
+          pip install selenium
+  - script: python test_selenium_chrome.py
