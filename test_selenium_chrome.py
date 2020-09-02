@@ -11,9 +11,6 @@ class WebDriverPythonTests(unittest.TestCase):
     def setUp(self):
         print("Launching Chrome browser")
         self.chrome_options = Options()
-        self.chrome_options.add_argument('--no-sandbox')
-        self.chrome_options.add_argument('--headless')
-        self.chrome_options.add_argument('--disable-dev-shm-usage')
         d = DesiredCapabilities.CHROME
         d['loggingPrefs'] = { 'browser':'ALL' }
         self.driver = webdriver.Chrome(chrome_options = self.chrome_options, desired_capabilities=d)
