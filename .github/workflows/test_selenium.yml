@@ -22,7 +22,9 @@ jobs:
         run: |
           python test_selenium_chrome.py
       - name: Install and run script chrome
-        run: mvn install
+        run: |
+          mvn install
+          mvn test
         working-directory: java
       - name: Install and run script firefox
         run: |
