@@ -11,7 +11,7 @@ class WebDriverPythonTests(unittest.TestCase):
     def setUp(self):
         print("Launching Chrome browser")
         self.chrome_options = Options()
-        self.chrome_options.binary_location = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
+        self.chrome_options.binary_location = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
         d = DesiredCapabilities.CHROME
         d['loggingPrefs'] = { 'browser':'ALL' }
         self.driver = webdriver.Chrome(chrome_options = self.chrome_options, desired_capabilities=d)
