@@ -10,9 +10,11 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 class WebDriverPythonTests(unittest.TestCase):
     def setUp(self):
         print("Launching Chrome browser")
+        self.chrome_options = Options()
+        self.chrome_options.binary_location = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
         d = DesiredCapabilities.CHROME
         d['loggingPrefs'] = { 'browser':'ALL' }
-        self.driver = webdriver.Chrome(desired_capabilities=d)
+        self.driver = webdriver.Chrome(chrome_options = self.chrome_options, desired_capabilities=d)
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
