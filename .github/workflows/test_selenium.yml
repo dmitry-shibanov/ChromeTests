@@ -6,6 +6,7 @@ jobs:
     name: Setup Chrome
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
     steps:
@@ -26,7 +27,9 @@ jobs:
         run: |
           python test_selenium_chrome.py
       - name: Install and run script chrome java
-        run: mvn install
+        run: |
+          mvn install
+          mvn test
         working-directory: java
       - name: Install and run script firefox java
         run: |
