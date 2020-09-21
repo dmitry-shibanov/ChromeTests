@@ -17,12 +17,17 @@ jobs:
         run: |
           python --version 
           pip install selenium
-      - name: Install and run script chrome
+      - name: Install and run script chrome node
+        run: |
+          npm install
+          npm run test
+        working-directory: nodeTests
+      - name: Install and run script chrome python
         run: |
           python test_selenium_chrome.py
-      - name: Install and run script chrome
+      - name: Install and run script chrome java
         run: mvn install
         working-directory: java
-      - name: Install and run script firefox
+      - name: Install and run script firefox java
         run: |
           python test_selenium_firefox.py
